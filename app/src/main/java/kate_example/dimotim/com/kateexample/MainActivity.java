@@ -35,4 +35,3 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(v -> new Canvas(bm).drawColor(BLACK));
     }
 }
-
