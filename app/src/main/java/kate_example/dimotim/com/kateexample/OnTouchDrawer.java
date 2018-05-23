@@ -35,6 +35,7 @@ public class OnTouchDrawer implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        v.performClick();
         Log.i(TAG, "handle");
         Canvas c = new Canvas(bm);
         switch (event.getAction()) {
@@ -52,7 +53,6 @@ public class OnTouchDrawer implements View.OnTouchListener {
                 Log.i(TAG, xs + " " + ys + "  |  " + event.getX() + " " + event.getY());
                 xs = event.getX();
                 ys = event.getY();
-
                 break;
             case ACTION_UP:
                 Log.i(TAG, "up");
