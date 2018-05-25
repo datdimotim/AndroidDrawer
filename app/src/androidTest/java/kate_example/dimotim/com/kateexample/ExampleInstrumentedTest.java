@@ -1,6 +1,7 @@
 package kate_example.dimotim.com.kateexample;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -22,5 +23,10 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("kate_example.dimotim.com.kateexample", appContext.getPackageName());
+    }
+    @Test
+    public void paintCopyTest(){
+        Paint paint=new Paint();
+
     }
 }

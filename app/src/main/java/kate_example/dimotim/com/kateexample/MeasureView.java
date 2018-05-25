@@ -6,10 +6,10 @@ import android.view.View;
 
 import java.util.function.BiConsumer;
 
-public class MesureView extends View {
+public class MeasureView extends View {
     private boolean mesured=false;
     private final BiConsumer<Integer,Integer> listener;
-    public MesureView(Context context, BiConsumer<Integer,Integer> listener) {
+    public MeasureView(Context context, BiConsumer<Integer,Integer> listener) {
         super(context);
         this.listener=listener;
     }
