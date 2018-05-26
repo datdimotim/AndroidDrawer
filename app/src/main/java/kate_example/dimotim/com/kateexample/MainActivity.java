@@ -4,20 +4,18 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
 
 import kate_example.dimotim.com.kateexample.brushes.Pen;
 import kate_example.dimotim.com.kateexample.brushes.RectangleBrush;
+import kate_example.dimotim.com.kateexample.drawer.Drawer;
+import kate_example.dimotim.com.kateexample.drawer.DrawerParams;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MAIN_ACTIVITY:";
 
-    // наша картинка в памяти //
-    private Bitmap bm = null;
-    Drawer.DrawerParams params=new Drawer.DrawerParams();
+    DrawerParams params=new DrawerParams();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     void onBitmapSizeMesured(int w,int h){
         FrameLayout f=findViewById(R.id.frame);
         f.removeAllViews();
-        bm=Bitmap.createBitmap(w,h, Bitmap.Config.RGB_565);
+        Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.RGB_565);
         final DisplayView mv = new DisplayView(this);
         f.addView(mv);
 
@@ -61,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
+
+        findViewById(R.id.backButton).setOnClickListener((e)->drawer.back());
+        findViewById(R.id.nextButton).setOnClickListener((e)->drawer.next());
     }
 
     void registerBrushListeners(Drawer drawer){

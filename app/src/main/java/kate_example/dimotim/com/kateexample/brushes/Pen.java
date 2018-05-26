@@ -3,27 +3,32 @@ package kate_example.dimotim.com.kateexample.brushes;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
-import kate_example.dimotim.com.kateexample.Drawer;
+import kate_example.dimotim.com.kateexample.drawer.BaseBrush;
+import kate_example.dimotim.com.kateexample.drawer.DrawerParams;
 
-import static android.graphics.Color.BLUE;
+import static android.graphics.Color.red;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
-import static kate_example.dimotim.com.kateexample.MainActivity.TAG;
 
-public class Pen extends Drawer.BaseBrush {
+public class Pen extends BaseBrush {
+    private Bitmap bm=null;
     private boolean isPressed = false;
     private float xs = 0;
     private float ys = 0;
 
     @Override
-    public void onTouch(MotionEvent event, Bitmap bm, Drawer.DrawerParams params) {
+    public void onBitmapChanged(Bitmap bitmap){
+        bm=bitmap;
+    }
+
+    @Override
+    public void onTouch(MotionEvent event, DrawerParams params) {
         Canvas c = new Canvas(bm);
         Paint p=new Paint();
+        p.setStrokeCap(Paint.Cap.ROUND);
         p.setStrokeWidth(params.strokeWidth);
         p.setColor(params.color);
         switch (event.getAction()) {
@@ -31,18 +36,19 @@ public class Pen extends Drawer.BaseBrush {
                 isPressed = true;
                 xs = event.getX();
                 ys = event.getY();
-                break;
+                return;
             case ACTION_MOVE:
-                if (!isPressed) break;
+                if (!isPressed) return;
                 c.drawLine(xs, ys, event.getX(), event.getY(), p);
-                commitImage(bm);
+                updatePreview(bm);
                 xs = event.getX();
                 ys = event.getY();
-                break;
+                return;
             case ACTION_UP:
+                if(!isPressed)return;
                 isPressed = false;
                 commitImage(bm);
-                break;
+                return;
         }
     }
 }
