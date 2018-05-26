@@ -22,6 +22,7 @@
         android:background="#14ffffff">
 
         <LinearLayout
+            android:id="@+id/rootLayoutOfNavigationPanel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -182,9 +183,9 @@
                 android:text="Brushes" />
 
             <RadioGroup
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/penRadioButton"

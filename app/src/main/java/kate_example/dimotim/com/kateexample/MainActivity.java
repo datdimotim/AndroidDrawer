@@ -30,17 +30,27 @@ public class MainActivity extends AppCompatActivity {
     void onBitmapSizeMesured(int w,int h){
         FrameLayout f=findViewById(R.id.frame);
         f.removeAllViews();
-        Log.i(TAG,w+" "+h);
         bm=Bitmap.createBitmap(w,h, Bitmap.Config.RGB_565);
         final DisplayView mv = new DisplayView(this);
         f.addView(mv);
-        registerColorListeners();
-        Drawer drawer=new Drawer(bm,mv,mv,()->params);
-        drawer.setBrush(new RectangleBrush());
 
-        findViewById(R.id.penRadioButton).setOnClickListener(v->drawer.setBrush(new Pen()));
-        findViewById(R.id.rectRadioButton).setOnClickListener(v->drawer.setBrush(new RectangleBrush()));
+        Drawer drawer=new Drawer(bm,mv,mv,()->params);
+        registerListeners(drawer);
+        bindUIControlsWithDrawerParams();
+    }
+
+    void bindUIControlsWithDrawerParams(){
+        findViewById(R.id.blueButton).performClick();
+        findViewById(R.id.penRadioButton).performClick();
+        ((SeekBar)findViewById(R.id.seekBar)).setProgress(10);
+    }
+
+    void registerListeners(Drawer drawer){
+        registerBrushListeners(drawer);
+        registerColorListeners();
+
         findViewById(R.id.button).setOnClickListener(v -> drawer.clear(Color.BLACK));
+
         ((SeekBar)findViewById(R.id.seekBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -51,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
+    }
+
+    void registerBrushListeners(Drawer drawer){
+        findViewById(R.id.penRadioButton).setOnClickListener(v->drawer.setBrush(new Pen()));
+        findViewById(R.id.rectRadioButton).setOnClickListener(v->drawer.setBrush(new RectangleBrush()));
     }
 
     void registerColorListeners(){
