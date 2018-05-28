@@ -24,9 +24,4 @@ public class ExampleInstrumentedTest {
 
         assertEquals("kate_example.dimotim.com.kateexample", appContext.getPackageName());
     }
-    @Test
-    public void paintCopyTest(){
-        Paint paint=new Paint();
-
-    }
 }

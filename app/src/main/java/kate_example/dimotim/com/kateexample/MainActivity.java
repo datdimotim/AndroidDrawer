@@ -9,8 +9,11 @@ import android.widget.SeekBar;
 
 import kate_example.dimotim.com.kateexample.brushes.Pen;
 import kate_example.dimotim.com.kateexample.brushes.RectangleBrush;
+import kate_example.dimotim.com.kateexample.display_view.DisplayView;
 import kate_example.dimotim.com.kateexample.drawer.Drawer;
 import kate_example.dimotim.com.kateexample.drawer.DrawerParams;
+import kate_example.dimotim.com.kateexample.measure_view.MeasureView;
+import kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MAIN_ACTIVITY:";
@@ -40,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     void bindUIControlsWithDrawerParams(){
         findViewById(R.id.blueButton).performClick();
         findViewById(R.id.penRadioButton).performClick();
-        ((SeekBar)findViewById(R.id.seekBar)).setProgress(10);
     }
 
     void registerListeners(Drawer drawer){
@@ -48,17 +50,7 @@ public class MainActivity extends AppCompatActivity {
         registerColorListeners();
 
         findViewById(R.id.button).setOnClickListener(v -> drawer.clear(Color.BLACK));
-
-        ((SeekBar)findViewById(R.id.seekBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                params=params.setStrokeWidth(50f*progress/100+1);
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) { }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) { }
-        });
+        ((StrokeSelectView)findViewById(R.id.strokeSeekBar)).setOnWidthChangeListener(width->params=params.setStrokeWidth(width));
 
         findViewById(R.id.backButton).setOnClickListener((e)->drawer.back());
         findViewById(R.id.nextButton).setOnClickListener((e)->drawer.next());

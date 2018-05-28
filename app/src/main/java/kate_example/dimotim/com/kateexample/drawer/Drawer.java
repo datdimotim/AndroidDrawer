@@ -9,7 +9,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import kate_example.dimotim.com.kateexample.DisplayView;
+import kate_example.dimotim.com.kateexample.display_view.DisplayView;
 import kate_example.dimotim.com.kateexample.MainActivity;
 
 public class Drawer implements View.OnTouchListener{

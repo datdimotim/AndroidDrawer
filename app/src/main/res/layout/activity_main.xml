@@ -170,10 +170,12 @@
                 android:gravity="center_horizontal"
                 android:text="@string/select_stroke" />
 
-            <SeekBar
-                android:id="@+id/seekBar"
+            <kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView
+                android:id="@+id/strokeSeekBar"
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="wrap_content">
+
+            </kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView>
 
             <TextView
                 android:id="@+id/textView5"
@@ -184,7 +186,7 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -203,6 +205,6 @@
             </RadioGroup>
 
         </LinearLayout>
-
     </android.support.design.widget.NavigationView>
+
 </android.support.v4.widget.DrawerLayout>

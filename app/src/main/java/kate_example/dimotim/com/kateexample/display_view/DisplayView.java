@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample;
+package kate_example.dimotim.com.kateexample.display_view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,10 +6,7 @@ import android.graphics.Canvas;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import java.util.function.Supplier;
-
 public class DisplayView extends View {
-    // эта картинка редактируется извне//
     private @NonNull Bitmap bm=Bitmap.createBitmap(10,10, Bitmap.Config.RGB_565);
 
     public DisplayView(Context context) {
