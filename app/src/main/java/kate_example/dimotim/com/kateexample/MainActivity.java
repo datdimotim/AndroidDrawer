@@ -1,14 +1,16 @@
 package kate_example.dimotim.com.kateexample;
 
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import android.widget.SeekBar;
+import android.widget.RadioButton;
 
 import kate_example.dimotim.com.kateexample.brushes.Pen;
 import kate_example.dimotim.com.kateexample.brushes.RectangleBrush;
+import kate_example.dimotim.com.kateexample.custom_color_dialog.ColorChooserDialog;
 import kate_example.dimotim.com.kateexample.display_view.DisplayView;
 import kate_example.dimotim.com.kateexample.drawer.Drawer;
 import kate_example.dimotim.com.kateexample.drawer.DrawerParams;
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.rectRadioButton).setOnClickListener(v->drawer.setBrush(new RectangleBrush()));
     }
 
+    void onCustomColorSelected(Integer color){
+        params=params.setColor(color);
+        ((RadioButton)findViewById(R.id.customColorButton)).setButtonTintList(ColorStateList.valueOf(color));
+    }
+
     void registerColorListeners(){
         findViewById(R.id.whiteButton)    .setOnClickListener((e)->params=params.setColor(0xffffffff));
         findViewById(R.id.blueButton)     .setOnClickListener((e)->params=params.setColor(0xff0000ff));
@@ -69,5 +76,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.yellowButton)   .setOnClickListener((e)->params=params.setColor(0xffffff00));
         findViewById(R.id.blueWhiteButton).setOnClickListener((e)->params=params.setColor(0xff00ffff));
         findViewById(R.id.pinkButton)     .setOnClickListener((e)->params=params.setColor(0xffff00ff));
+        findViewById(R.id.customColorButton).setOnClickListener(e-> ColorChooserDialog.run(this,this::onCustomColorSelected,params.color));
     }
 }
