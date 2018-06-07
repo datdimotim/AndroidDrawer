@@ -1,15 +1,15 @@
 package kate_example.dimotim.com.kateexample;
 
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.RadioButton;
 
 import kate_example.dimotim.com.kateexample.brushes.Pen;
 import kate_example.dimotim.com.kateexample.brushes.RectangleBrush;
+import kate_example.dimotim.com.kateexample.color_radio_button.ColorRadioButton;
 import kate_example.dimotim.com.kateexample.custom_color_dialog.ColorChooserDialog;
 import kate_example.dimotim.com.kateexample.display_view.DisplayView;
 import kate_example.dimotim.com.kateexample.drawer.Drawer;
@@ -63,19 +63,54 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.rectRadioButton).setOnClickListener(v->drawer.setBrush(new RectangleBrush()));
     }
 
-    void onCustomColorSelected(Integer color){
-        params=params.setColor(color);
-        ((RadioButton)findViewById(R.id.customColorButton)).setButtonTintList(ColorStateList.valueOf(color));
-    }
-
     void registerColorListeners(){
-        findViewById(R.id.whiteButton)    .setOnClickListener((e)->params=params.setColor(0xffffffff));
-        findViewById(R.id.blueButton)     .setOnClickListener((e)->params=params.setColor(0xff0000ff));
-        findViewById(R.id.greenButton)    .setOnClickListener((e)->params=params.setColor(0xff00ff00));
-        findViewById(R.id.redButton)      .setOnClickListener((e)->params=params.setColor(0xffff0000));
-        findViewById(R.id.yellowButton)   .setOnClickListener((e)->params=params.setColor(0xffffff00));
-        findViewById(R.id.blueWhiteButton).setOnClickListener((e)->params=params.setColor(0xff00ffff));
-        findViewById(R.id.pinkButton)     .setOnClickListener((e)->params=params.setColor(0xffff00ff));
-        findViewById(R.id.customColorButton).setOnClickListener(e-> ColorChooserDialog.run(this,this::onCustomColorSelected,params.color));
+        View[] prevSelected=new View[1];
+        findViewById(R.id.whiteButton).setOnClickListener((e)->{
+            params=params.setColor(0xffffffff);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.blueButton).setOnClickListener((e)->{
+            params=params.setColor(0xff0000ff);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.greenButton).setOnClickListener((e)->{
+            params=params.setColor(0xff00ff00);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.redButton).setOnClickListener((e)->{
+            params=params.setColor(0xffff0000);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.yellowButton).setOnClickListener((e)->{
+            params=params.setColor(0xffffff00);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.blueWhiteButton).setOnClickListener((e)->{
+            params=params.setColor(0xff00ffff);
+            prevSelected[0]=e;
+        });
+        findViewById(R.id.pinkButton).setOnClickListener((e)->{
+            params=params.setColor(0xffff00ff);
+            prevSelected[0]=e;
+        });
+        ColorRadioButton colorRadioButton=findViewById(R.id.customColorButton);
+        colorRadioButton.setOnClickListener(
+                e->ColorChooserDialog.run(
+                        this,
+                        (c)-> {
+                            if(c!=null) {
+                                params = params.setColor(c);
+                                colorRadioButton.setColor(c);
+                                prevSelected[0]=e;
+                            }
+                            else {
+                                if(colorRadioButton!=prevSelected[0])
+                                    prevSelected[0].performClick();
+                            }
+                        },
+                        colorRadioButton.getColor()
+                )
+        );
+
     }
 }

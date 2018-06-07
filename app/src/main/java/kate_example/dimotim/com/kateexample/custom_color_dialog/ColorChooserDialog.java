@@ -22,7 +22,7 @@ public class ColorChooserDialog extends LinearLayout {
                 .setTitle("Choose color")
                 .setView(colorChooserDialog)
                 .setPositiveButton("OK", (e,w)->{onResultListener.accept(colorChooserDialog.getCurrentColor());})
-                .setNegativeButton("CANCEL",(e,w)->{})
+                .setNegativeButton("CANCEL",(e,w)->{onResultListener.accept(null);})
                 .create()
                 .show();
     }

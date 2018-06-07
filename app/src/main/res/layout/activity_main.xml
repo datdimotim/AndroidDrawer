@@ -154,12 +154,11 @@
                     android:layout_weight="1"
                     android:buttonTint="#ffff00" />
 
-                <RadioButton
+                <kate_example.dimotim.com.kateexample.color_radio_button.ColorRadioButton
                     android:id="@+id/customColorButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:buttonTint="#777777"
                     android:text="@string/custom_color_text" />
             </RadioGroup>
 
