@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.dimotim.android_drawer.brushes.Pen;
+import com.dimotim.android_drawer.brushes.OvalBrush;
+import com.dimotim.android_drawer.brushes.PointPen;
 import com.dimotim.android_drawer.brushes.RectangleBrush;
+import com.dimotim.android_drawer.brushes.SimplePen;
 import com.dimotim.android_drawer.color_radio_button.ColorRadioButton;
 import com.dimotim.android_drawer.custom_color_dialog.ColorChooserDialog;
 import com.dimotim.android_drawer.display_view.DisplayView;
@@ -62,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void registerBrushListeners(Drawer drawer){
-        findViewById(R.id.penRadioButton).setOnClickListener(v->drawer.setBrush(new Pen()));
+        findViewById(R.id.penRadioButton).setOnClickListener(v->drawer.setBrush(new SimplePen()));
+        findViewById(R.id.pointPenRadioButton).setOnClickListener(v->drawer.setBrush(new PointPen()));
         findViewById(R.id.rectRadioButton).setOnClickListener(v->drawer.setBrush(new RectangleBrush()));
+        findViewById(R.id.ovalBrushRadioButton).setOnClickListener(v->drawer.setBrush(new OvalBrush()));
     }
 
     void registerStrokeStyleListeners(){

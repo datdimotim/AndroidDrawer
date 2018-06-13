@@ -196,11 +196,25 @@
                     android:text="@string/pen" />
 
                 <RadioButton
+                    android:id="@+id/pointPenRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pts" />
+
+                <RadioButton
                     android:id="@+id/rectRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/rect" />
+
+                <RadioButton
+                    android:id="@+id/ovalBrushRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Oval" />
             </RadioGroup>
 
             <TextView
