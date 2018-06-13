@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.stroke_select_view;
+package com.dimotim.android_drawer.stroke_select_view;
 
 import android.content.Context;
 import android.graphics.Canvas;

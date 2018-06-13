@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.measure_view;
+package com.dimotim.android_drawer.measure_view;
 
 import android.content.Context;
 import android.graphics.Canvas;

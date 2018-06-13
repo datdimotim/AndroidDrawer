@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.display_view;
+package com.dimotim.android_drawer.display_view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

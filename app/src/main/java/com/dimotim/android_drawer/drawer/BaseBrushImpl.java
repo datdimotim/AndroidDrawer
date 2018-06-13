@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.drawer;
+package com.dimotim.android_drawer.drawer;
 
 import android.graphics.Bitmap;
 import android.view.MotionEvent;

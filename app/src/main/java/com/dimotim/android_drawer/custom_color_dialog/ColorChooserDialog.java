@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.custom_color_dialog;
+package com.dimotim.android_drawer.custom_color_dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;

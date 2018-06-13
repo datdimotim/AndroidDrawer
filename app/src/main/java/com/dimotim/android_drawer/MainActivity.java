@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample;
+package com.dimotim.android_drawer;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import kate_example.dimotim.com.kateexample.brushes.Pen;
-import kate_example.dimotim.com.kateexample.brushes.RectangleBrush;
-import kate_example.dimotim.com.kateexample.color_radio_button.ColorRadioButton;
-import kate_example.dimotim.com.kateexample.custom_color_dialog.ColorChooserDialog;
-import kate_example.dimotim.com.kateexample.display_view.DisplayView;
-import kate_example.dimotim.com.kateexample.drawer.Drawer;
-import kate_example.dimotim.com.kateexample.drawer.DrawerParams;
-import kate_example.dimotim.com.kateexample.measure_view.MeasureView;
-import kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView;
+import com.dimotim.android_drawer.brushes.Pen;
+import com.dimotim.android_drawer.brushes.RectangleBrush;
+import com.dimotim.android_drawer.color_radio_button.ColorRadioButton;
+import com.dimotim.android_drawer.custom_color_dialog.ColorChooserDialog;
+import com.dimotim.android_drawer.display_view.DisplayView;
+import com.dimotim.android_drawer.drawer.Drawer;
+import com.dimotim.android_drawer.drawer.DrawerParams;
+import com.dimotim.android_drawer.measure_view.MeasureView;
+import com.dimotim.android_drawer.stroke_select_view.StrokeSelectView;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MAIN_ACTIVITY:";
@@ -111,6 +111,5 @@ public class MainActivity extends AppCompatActivity {
                         colorRadioButton.getColor()
                 )
         );
-
     }
 }

@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.drawer;
+package com.dimotim.android_drawer.drawer;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,8 +9,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import kate_example.dimotim.com.kateexample.display_view.DisplayView;
-import kate_example.dimotim.com.kateexample.MainActivity;
+import com.dimotim.android_drawer.display_view.DisplayView;
+import com.dimotim.android_drawer.MainActivity;
 
 public class Drawer implements View.OnTouchListener{
     public static final int MAX=10;

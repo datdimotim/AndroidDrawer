@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    tools:context=".MainActivity"
+    tools:context="com.dimotim.android_drawer.MainActivity"
     tools:openDrawer="left">
 
     <FrameLayout
@@ -154,7 +154,7 @@
                     android:layout_weight="1"
                     android:buttonTint="#ffff00" />
 
-                <kate_example.dimotim.com.kateexample.color_radio_button.ColorRadioButton
+                <com.dimotim.android_drawer.color_radio_button.ColorRadioButton
                     android:id="@+id/customColorButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -169,12 +169,12 @@
                 android:gravity="center_horizontal"
                 android:text="@string/select_stroke" />
 
-            <kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView
+            <com.dimotim.android_drawer.stroke_select_view.StrokeSelectView
                 android:id="@+id/strokeSeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            </kate_example.dimotim.com.kateexample.stroke_select_view.StrokeSelectView>
+            </com.dimotim.android_drawer.stroke_select_view.StrokeSelectView>
 
             <TextView
                 android:id="@+id/textView5"

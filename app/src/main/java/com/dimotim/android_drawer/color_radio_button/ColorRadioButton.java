@@ -1,4 +1,4 @@
-package kate_example.dimotim.com.kateexample.color_radio_button;
+package com.dimotim.android_drawer.color_radio_button;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
