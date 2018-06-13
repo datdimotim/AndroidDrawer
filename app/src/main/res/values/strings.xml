@@ -4,4 +4,16 @@
     <string name="select_color">Select color</string>
     <string name="custom_color_text">?</string>
     <string name="select_stroke">Select stroke</string>
+    <string name="stroke">Stroke</string>
+    <string name="fill">Fill</string>
+    <string name="style">Style</string>
+    <string name="rect">Rect</string>
+    <string name="pen">Pen</string>
+    <string name="brushes">Brushes</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="history">History</string>
+    <string name="load">Load</string>
+    <string name="save">Save</string>
+    <string name="options">Options</string>
 </resources>

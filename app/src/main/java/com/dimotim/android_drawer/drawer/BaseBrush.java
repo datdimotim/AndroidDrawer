@@ -1,6 +1,7 @@
 package com.dimotim.android_drawer.drawer;
 
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.view.MotionEvent;
 
 public abstract class BaseBrush {
@@ -15,6 +16,6 @@ public abstract class BaseBrush {
     protected void updatePreview(Bitmap bitmap) {
         drawer.onPreviewUpdated(bitmap);
     }
-    protected abstract void onTouch(MotionEvent event, DrawerParams params);
+    protected abstract void onTouch(MotionEvent event, Paint paint);
     protected abstract void onBitmapChanged(Bitmap bitmap);
 }

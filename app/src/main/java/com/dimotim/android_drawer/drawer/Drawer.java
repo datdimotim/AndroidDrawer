@@ -2,6 +2,7 @@ package com.dimotim.android_drawer.drawer;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,10 +18,10 @@ public class Drawer implements View.OnTouchListener{
     private ArrayList<Bitmap> imageList=new ArrayList<>(MAX);
     private int current=0;
     private final DisplayView displayView;
-    private BaseBrush brush=new BaseBrushImpl();
-    private final Supplier<DrawerParams> paramsController;
+    private BaseBrush brush=new EmptyBrush();
+    private final Supplier<Paint> paramsController;
 
-    public Drawer(Bitmap bitmap, DisplayView displayView, View onTouchable, Supplier<DrawerParams> paramsController) {
+    public Drawer(Bitmap bitmap, DisplayView displayView, View onTouchable, Supplier<Paint> paramsController) {
         this.displayView = displayView;
         this.paramsController=paramsController;
         onTouchable.setOnTouchListener(this);

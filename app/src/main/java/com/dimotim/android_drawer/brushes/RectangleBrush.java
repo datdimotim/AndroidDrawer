@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 
 import com.dimotim.android_drawer.drawer.BaseBrush;
-import com.dimotim.android_drawer.drawer.DrawerParams;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
@@ -20,10 +19,7 @@ public class RectangleBrush extends BaseBrush {
     private float ys = 0;
 
     @Override
-    public void onTouch(MotionEvent event, DrawerParams params) {
-        Paint p=new Paint();
-        p.setStrokeWidth(params.strokeWidth);
-        p.setColor(params.color);
+    public void onTouch(MotionEvent event, Paint paint) {
         switch (event.getAction()) {
             case ACTION_DOWN: {
                 isPressed = true;
@@ -35,7 +31,7 @@ public class RectangleBrush extends BaseBrush {
                 if (!isPressed) return;
                 Canvas c = new Canvas(cashed);
                 c.drawBitmap(bm,0,0,null);
-                c.drawRect(xs,ys,event.getX(),event.getY(),p);
+                c.drawRect(xs,ys,event.getX(),event.getY(),paint);
                 updatePreview(cashed);
                 return;
             }
@@ -43,7 +39,7 @@ public class RectangleBrush extends BaseBrush {
                 if (!isPressed) return;
                 isPressed = false;
                 Canvas c = new Canvas(bm);
-                c.drawRect(xs, ys, event.getX(), event.getY(), p);
+                c.drawRect(xs, ys, event.getX(), event.getY(), paint);
                 commitImage(bm);
                 return;
             }

@@ -6,9 +6,7 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 
 import com.dimotim.android_drawer.drawer.BaseBrush;
-import com.dimotim.android_drawer.drawer.DrawerParams;
 
-import static android.graphics.Color.red;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
@@ -25,12 +23,8 @@ public class Pen extends BaseBrush {
     }
 
     @Override
-    public void onTouch(MotionEvent event, DrawerParams params) {
+    public void onTouch(MotionEvent event, Paint paint) {
         Canvas c = new Canvas(bm);
-        Paint p=new Paint();
-        p.setStrokeCap(Paint.Cap.ROUND);
-        p.setStrokeWidth(params.strokeWidth);
-        p.setColor(params.color);
         switch (event.getAction()) {
             case ACTION_DOWN:
                 isPressed = true;
@@ -39,7 +33,7 @@ public class Pen extends BaseBrush {
                 return;
             case ACTION_MOVE:
                 if (!isPressed) return;
-                c.drawLine(xs, ys, event.getX(), event.getY(), p);
+                c.drawLine(xs, ys, event.getX(), event.getY(), paint);
                 updatePreview(bm);
                 xs = event.getX();
                 ys = event.getY();
