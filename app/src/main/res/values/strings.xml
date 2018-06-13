@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidDrawer</string>
+    <string name="app_name">Paint</string>
     <string name="clear">CLEAR</string>
     <string name="select_color">Select color</string>
     <string name="custom_color_text">?</string>
