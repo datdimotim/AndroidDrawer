@@ -29,5 +29,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: android-drawer.apk
-        path: app/build/outputs/apk/release/app-debug.apk
+        path: app/build/outputs/apk/debug/app-debug.apk
 
